@@ -6,6 +6,7 @@
 /public/bundles/
 /var/
 /vendor/
+/front/dist/
 .env
 ###< symfony/framework-bundle ###
 .idea*

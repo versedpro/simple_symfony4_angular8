@@ -4,25 +4,31 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-
-// use Symfony\Flex\Response;
 use Symfony\Component\HttpFoundation\Response;
+use App\Order\Infrastructure\PDO\HibernateOrderRepository;
 
 class OrderApiController extends AbstractController
 {
     /**
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->render('activity/index.html.twig');
+    }
+
+    /**
      * @Route("/order/get", name="order_get")
      */
-    public function index()
+    public function getOrder()
     {
         // return $this->render('order_api/index.html.twig', [
         //     'controller_name' => 'OrderApiController',
         // ]);
-        $ordersDirectories = __DIR__.'/orders.json';
-        $ordersJson = file_get_contents($ordersDirectories);
-        $orders = json_decode($ordersJson, true);
-        
-        $response = new Response(json_encode($orders));
-        return $response;
+
+        // Assume that  I use PDO provided
+        $pdo = (object) null;
+        $orderRepository = new HibernateOrderRepository($pdo);
+        return $orderRepository->orderList();
     }
 }
