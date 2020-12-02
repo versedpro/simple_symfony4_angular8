@@ -11,14 +11,7 @@ Requirements
 Install the symfony project
 -----
 ### Clone the project 
-#### By https
-```bash
-$ git clone https://github.com/IvanStack/Angular-8-with-Symfony-Backend.git 
-```
-####By ssh
-```bash
-$ git clone git@github.com:IvanStack/Angular-8-with-Symfony-Backend.git
-```
+
 
 ### Go Inside the project
 ```bash
